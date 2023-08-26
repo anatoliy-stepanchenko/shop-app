@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import ProductsView from '@/views/ProductsView.vue';
+import CartView from '@/views/CartView.vue';
 import { document } from 'postcss';
 
 const router = createRouter({
@@ -11,6 +12,14 @@ const router = createRouter({
       component: ProductsView,
       meta: {
         title: 'Products',
+      },
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: CartView,
+      meta: {
+        title: 'Cart',
       },
     },
   ],

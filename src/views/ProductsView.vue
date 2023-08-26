@@ -16,7 +16,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="grid gap-4 grid-cols-3 justify-center">
+  <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
     <BaseProductCard v-for="product in products" :key="product.id" :product="product" />
   </div>
 </template>

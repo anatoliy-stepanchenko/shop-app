@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white">
+  <header class="bg-gray-200 mb-2">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <a class="-m-1.5 p-1.5" href="#">
@@ -22,37 +22,27 @@
           </svg>
         </button>
       </div>
-      <div class="hidden lg:flex lg:gap-x-12">
-        <div class="relative">
-          <button
-            class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900"
-            type="button"
-            aria-expanded="false"
-          >
-            Product
-            <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <div class="hidden lg:flex lg:gap-x-12 text-xl justify-between items-center">
+        <a class="font-semibold leading-6 text-gray-900" href="#">Products</a>
+        <router-link to="/cart"
+          ><div class="flex justify-between items-center">
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
               <path
-                fill-rule="evenodd"
-                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                clip-rule="evenodd"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
               />
             </svg>
-          </button>
-
-          <!--
-          'Product' flyout menu, show/hide based on flyout menu state.
-
-          Entering: "transition ease-out duration-200"
-            From: "opacity-0 translate-y-1"
-            To: "opacity-100 translate-y-0"
-          Leaving: "transition ease-in duration-150"
-            From: "opacity-100 translate-y-0"
-            To: "opacity-0 translate-y-1"
-        --></div>
-
-        <a class="text-sm font-semibold leading-6 text-gray-900" href="#">Features</a>
-        <a class="text-sm font-semibold leading-6 text-gray-900" href="#">Marketplace</a>
-        <a class="text-sm font-semibold leading-6 text-gray-900" href="#">Company</a>
+            <a class="m-2 font-semibold leading-6 text-gray-900" href="#">Cart</a>
+          </div>
+        </router-link>
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -84,43 +74,15 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <div class="-mx-3">
-                <button
-                  class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  type="button"
-                  aria-controls="disclosure-1"
-                  aria-expanded="false"
-                >
-                  Product
-                  <!--
-                  Expand/collapse icon, toggle classes based on menu open state.
-
-                  Open: "rotate-180", Closed: ""
-                -->
-                  <svg class="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path
-                      fill-rule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </button>
-                <!-- 'Product' sub-menu, show/hide based on menu state. -->
-              </div>
               <a
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 href="#"
-                >Features</a
+                >Products</a
               >
               <a
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 href="#"
-                >Marketplace</a
-              >
-              <a
-                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                href="#"
-                >Company</a
+                >Cart</a
               >
             </div>
           </div>
@@ -128,6 +90,19 @@
       </div>
     </div>
   </header>
+
+  <!-- <header class="bg-white shadow-md">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <div class="flex items-center">
+        <img class="w-10 h-10 mr-2" src="logo.png" alt="Logo" />
+        <h1 class="text-xl font-semibold">My Logo</h1>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a class="text-gray-600 hover:text-gray-900" href="#">Products</a>
+        <a class="text-gray-600 hover:text-gray-900" href="#">Cart</a>
+      </div>
+    </div>
+  </header> -->
 </template>
 
 <script setup></script>
