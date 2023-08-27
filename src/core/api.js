@@ -15,3 +15,12 @@ export const getAllProductsQuery = async () => {
     console.log(error.message);
   }
 };
+
+export const getSingleProductQuery = async (id) => {
+  try {
+    const response = await HTTP.get(`products/${id}`);
+    return response.data;
+  } catch (error) {
+    console.log('error.massage');
+  }
+};
