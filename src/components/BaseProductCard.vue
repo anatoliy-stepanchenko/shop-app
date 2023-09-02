@@ -14,12 +14,17 @@
 
     <div class="flex justify-between items-center">
       <span class="text-amber-600 text-2xl">$ {{ props.product.price }}</span>
-      <button class="bg-blue-200 border border-radius rounded-md p-2">Add to cart</button>
+      <button class="bg-blue-200 border border-radius rounded-md p-2" @click="store.addProductToOrder(props.product)">
+        Add to cart
+      </button>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useProductsStore } from '@/stores/index.js';
+const store = useProductsStore();
+
 const props = defineProps({
   product: {
     type: Object,

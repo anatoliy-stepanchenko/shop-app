@@ -1,7 +1,7 @@
 <template>
   <header class="bg-gray-200 mb-2">
     <div class="container mx-auto">
-      <nav class="flex max-w-7xl items-center justify-between py-4" aria-label="Global">
+      <nav class="flex max-w-9xl items-center justify-between py-4" aria-label="Global">
         <div class="flex lg:flex-1">
           <a class="-m-1.5 p-1.5" href="#">
             <span class="sr-only">Your Company</span>
@@ -44,6 +44,7 @@
               <a class="m-2 font-semibold leading-6 text-gray-900" href="#">Cart</a>
             </div>
           </router-link>
+          <BaseCartBadge />
         </div>
       </nav>
     </div>
@@ -107,6 +108,8 @@
   </header> -->
 </template>
 
-<script setup></script>
+<script setup>
+import BaseCartBadge from '@/components/BaseCartBadge.vue';
+</script>
 
 <style lang="scss" scoped></style>
