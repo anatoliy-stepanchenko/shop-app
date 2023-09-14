@@ -24,22 +24,37 @@ export const useProductsStore = defineStore('', () => {
     order.value.push({ quantity: BASE_QUANTIY, ...productToAdd });
   };
 
-  // const orderQuantity = () => {
-  //   console.log('orderQuantity');
-  //   if (!order.value) {
-  //     return 0;
-  //   }
-  //   const quantity = order.value.reduce((total, product) => total + product.quantity, 0);
-  //   return quantity;
-  // };
-
   const totalOrderPrice = () => {
     if (!order.value) {
       return '0.00';
     }
-    const total = order.value.reduce((total, product) => total + totalProductPrice(product.quantity, product.price), 0);
+    const total = order.value.reduce((total, product) => total + totalProductPrice(product.price, product.quantity), 0);
     return total;
   };
 
-  return { products, order, getProducts, addProductToOrder, orderQuantity, totalOrderPrice };
+  const deletProductFromOrder = (id) => {
+    order.value = order.value.filter((product) => product.id !== id);
+  };
+
+  const increaseQuantity = (id) => {
+    order.value.find((product) => product.id === id).quantity++;
+  };
+
+  const decreaseQuantity = (id) => {
+    const changeProduct = order.value.find((product) => product.id === id);
+    if (changeProduct.quantity === 1) return;
+    changeProduct.quantity--;
+  };
+
+  return {
+    products,
+    order,
+    getProducts,
+    addProductToOrder,
+    orderQuantity,
+    totalOrderPrice,
+    deletProductFromOrder,
+    increaseQuantity,
+    decreaseQuantity,
+  };
 });

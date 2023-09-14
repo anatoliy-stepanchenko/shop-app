@@ -24,7 +24,10 @@
           </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12 text-xl justify-between items-center">
-          <a class="font-semibold leading-6 text-gray-900" href="#">Products</a>
+          <router-link to="/">
+            <a class="font-semibold leading-6 text-gray-900" href="#">Products</a>
+          </router-link>
+
           <router-link to="/cart"
             ><div class="flex justify-between items-center">
               <svg

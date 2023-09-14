@@ -9,7 +9,9 @@
         <p class="text-gray-600">{{ singleProduct.description }}</p>
         <div class="flex justify-between items-center mt-4">
           <span class="text-amber-600 text-lg font-semibold">$ {{ singleProduct.price }}</span>
-          <button class="bg-blue-200 border rounded-md py-2 px-4">Add to cart</button>
+          <button class="bg-blue-200 border rounded-md py-2 px-4" @click="store.addProductToOrder(singleProduct)">
+            Add to cart
+          </button>
         </div>
       </div>
     </div>
@@ -19,7 +21,10 @@
 <script setup>
 import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { getSingleProductQuery } from '../core/api';
+import { getSingleProductQuery } from '@/core/api';
+import { useProductsStore } from '@/stores';
+
+const store = useProductsStore();
 
 const { id } = useRoute().params;
 const router = useRouter();
