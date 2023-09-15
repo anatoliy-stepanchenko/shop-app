@@ -1279,6 +1279,11 @@ normalize-range@^0.1.2:
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   integrity sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==
 
+notivue@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/notivue/-/notivue-1.3.1.tgz#07fcd6642bebc3e4bb65ebb866fcc289e8fe5b16"
+  integrity sha512-JTyVUDmgdnJhiDETKT88LMUSqTklbiV5oCVloqTAquflhvECQ8DJpu9tCoiqU10XJlV26J24MOrx5+EDxAC3dA==
+
 npm-run-path@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-4.0.1.tgz#b7ecd1e5ed53da8e37a55e1c2269e0b97ed748ea"

@@ -1,14 +1,20 @@
-import './assets/main.css'
+import './assets/main.css';
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
+import { createNotivue } from 'notivue';
 
-import App from './App.vue'
-import router from './router'
+import App from './App.vue';
+import router from './router';
 
-const app = createApp(App)
+import 'notivue/notifications.css'; // Only needed if using built-in notifications
+import 'notivue/animations.css'; // Only needed if using built-in animations
 
-app.use(createPinia())
-app.use(router)
+const app = createApp(App);
 
-app.mount('#app')
+app.use(createPinia());
+app.use(router);
+
+export const push = createNotivue(app);
+
+app.mount('#app');

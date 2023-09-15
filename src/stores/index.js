@@ -2,6 +2,7 @@ import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 import { getAllProductsQuery } from '@/core/api';
 import { totalProductPrice } from '@/utils/helpers.js';
+import { push } from '@/main';
 
 export const useProductsStore = defineStore('', () => {
   const products = ref([]);
@@ -19,21 +20,27 @@ export const useProductsStore = defineStore('', () => {
     const productExist = order.value.find((product) => product.id === productToAdd.id);
     if (productExist) {
       productExist.quantity++;
+      push.success('Product added to cart!');
       return;
     }
     order.value.push({ quantity: BASE_QUANTIY, ...productToAdd });
+    push.success('Product added to cart!');
   };
 
   const totalOrderPrice = () => {
     if (!order.value) {
       return '0.00';
     }
-    const total = order.value.reduce((total, product) => total + totalProductPrice(product.price, product.quantity), 0);
-    return total;
+    const total = order.value.reduce(
+      (total, product) => +total + +totalProductPrice(product.price, product.quantity),
+      0
+    );
+    return total.toFixed(2);
   };
 
   const deletProductFromOrder = (id) => {
     order.value = order.value.filter((product) => product.id !== id);
+    push.error('Product deleted from cart!');
   };
 
   const increaseQuantity = (id) => {

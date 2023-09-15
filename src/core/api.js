@@ -21,6 +21,6 @@ export const getSingleProductQuery = async (id) => {
     const response = await HTTP.get(`products/${id}`);
     return response.data;
   } catch (error) {
-    console.log('error.massage');
+    console.log(error.massage);
   }
 };
