@@ -15,6 +15,9 @@ const app = createApp(App);
 app.use(createPinia());
 app.use(router);
 
-export const push = createNotivue(app);
+export const push = createNotivue(app, {
+  enqueue: false,
+  limit: 3,
+});
 
 app.mount('#app');
