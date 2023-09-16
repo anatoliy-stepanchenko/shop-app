@@ -15,6 +15,8 @@ const store = useProductsStore();
 
 const { products } = storeToRefs(store);
 
+store.setOrderLocalStorage();
+
 onMounted(() => {
   store.getProducts();
 });

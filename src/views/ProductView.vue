@@ -51,6 +51,8 @@ const getSingleProduct = async (id) => {
   }
 };
 getSingleProduct(id);
+
+store.setOrderLocalStorage();
 </script>
 
 <style lang="scss" scoped></style>

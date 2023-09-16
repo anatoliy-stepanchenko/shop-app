@@ -20,14 +20,16 @@ export const useProductsStore = defineStore('', () => {
     const productExist = order.value.find((product) => product.id === productToAdd.id);
     if (productExist) {
       productExist.quantity++;
+      updateLocalStorage();
       push.success('Product added to cart!');
       return;
     }
     order.value.push({ quantity: BASE_QUANTIY, ...productToAdd });
+    updateLocalStorage();
     push.success('Product added to cart!');
   };
 
-  const totalOrderPrice = () => {
+  const totalOrderPrice = computed(() => {
     if (!order.value) {
       return '0.00';
     }
@@ -36,21 +38,34 @@ export const useProductsStore = defineStore('', () => {
       0
     );
     return total.toFixed(2);
-  };
+  });
 
   const deletProductFromOrder = (id) => {
     order.value = order.value.filter((product) => product.id !== id);
+    updateLocalStorage();
     push.error('Product deleted from cart!');
   };
 
   const increaseQuantity = (id) => {
     order.value.find((product) => product.id === id).quantity++;
+    updateLocalStorage();
   };
 
   const decreaseQuantity = (id) => {
     const changeProduct = order.value.find((product) => product.id === id);
     if (changeProduct.quantity === 1) return;
     changeProduct.quantity--;
+    updateLocalStorage();
+  };
+
+  const setOrderLocalStorage = () => {
+    const curentOrderLocalStorage = JSON.parse(localStorage.getItem('order-local-storage'));
+    if (!curentOrderLocalStorage) return;
+    order.value = curentOrderLocalStorage;
+  };
+
+  const updateLocalStorage = () => {
+    localStorage.setItem('order-local-storage', JSON.stringify(order.value));
   };
 
   return {
@@ -63,5 +78,7 @@ export const useProductsStore = defineStore('', () => {
     deletProductFromOrder,
     increaseQuantity,
     decreaseQuantity,
+    setOrderLocalStorage,
+    updateLocalStorage,
   };
 });
